@@ -5,20 +5,13 @@ const axios = require("axios");
 
 const typeDefs = gql`
     type Query {
-        
-    }
-
-    type Mutation {
-        
+        name: String
     }
 `;
 
 const resolvers = {
     Query: {
-        
-    },
-    Mutation: {
-        
+        name: () => "dan"
     }
 }
 
