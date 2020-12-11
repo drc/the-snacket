@@ -8,7 +8,7 @@ import { cache } from "./utils/cache";
 const client = new ApolloClient({
     uri:
         process.env.NODE_ENV === "production"
-            ? "https://snacket.herokuapp.com/graphql"
+            ? "https://the-snacket.herokuapp.com/graphql"
             : "http://localhost:5000/graphql",
     connectToDevtools: true,
     cache,
