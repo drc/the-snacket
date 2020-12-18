@@ -92,6 +92,11 @@
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
+.card.disabled {
+  color: #eaeaea;
+  pointer-events: none;
+}
+
 .card:hover,
 .card:focus,
 .card:active {
