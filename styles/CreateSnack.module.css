@@ -1,0 +1,40 @@
+.title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 4rem;
+}
+
+.label {
+    font-size: 1.5rem;
+    display: block;
+}
+
+.label:last-of-type {
+    margin-top: 1.4rem;
+}
+
+.input {
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.button {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.table {
+    border-collapse: collapse;
+    margin-top: 2rem;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.th {
+}
+
+.tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
