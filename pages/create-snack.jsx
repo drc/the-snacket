@@ -125,7 +125,7 @@ export default function CreateSnack({ categories }) {
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
     const catRes = await fetch(`${server}/api/categories`);
     const categories = await catRes.json();
 
