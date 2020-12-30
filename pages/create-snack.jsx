@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "../styles/CreateSnack.module.css";
 import { server } from "../config";
 import useSWR from "swr";
+import SnackTable from "../components/SnackTable";
 
 export default function CreateSnack({ categories }) {
     const fetcher = url => fetch(url).then(r => r.json());
@@ -88,46 +89,18 @@ export default function CreateSnack({ categories }) {
                         )}
                     </form>
                 )}
-                {data ? (
-                    <table className={styles.table}>
-                        <thead className={styles.th}>
-                            <tr className={styles.tr}>
-                                <th>Name</th>
-                                <th>Category</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data.results
-                                .sort((a, b) => {
-                                    const nameA = a.name.toUpperCase();
-                                    const nameB = b.name.toUpperCase();
-                                    if (nameA < nameB) return -1;
-                                    if (nameA > nameB) return 1;
-                                    return 0;
-                                })
-                                .map(snack => {
-                                    return (
-                                        <tr
-                                            className={styles.tr}
-                                            key={snack._id}>
-                                            <td>{snack.name}</td>
-                                            <td>
-                                                {
-                                                    categories.results.find(
-                                                        cat =>
-                                                            cat._id ===
-                                                            snack.category
-                                                    ).name
-                                                }
-                                            </td>
-                                        </tr>
-                                    );
-                                })}
-                        </tbody>
-                    </table>
-                ) : (
-                    ""
-                )}
+                <div className={styles.tableList}>
+                    {data
+                        ? categories.results.map((category, idx) => (
+                              <SnackTable
+                                  key={idx}
+                                  data={data}
+                                  categories={categories}
+                                  filter={category}
+                              />
+                          ))
+                        : ""}
+                </div>
                 {error ? "Error loading the table" : ""}
             </main>
         </div>

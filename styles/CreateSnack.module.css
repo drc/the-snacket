@@ -25,17 +25,6 @@
     padding: 0.5rem 1rem;
 }
 
-.table {
-    border-collapse: collapse;
-    margin-top: 2rem;
-    width: 100%;
-    font-size: 1.2rem;
-}
-
-.tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
 .nav {
     margin-top: 1rem;
     align-self: flex-start;
@@ -43,4 +32,43 @@
 
 .nav a {
     font-size: 1.2rem;
+}
+
+.tableList {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.snackList {
+    flex: 1 1 45%;
+    margin: 0 10px;
+}
+
+.card {
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.card:last-child {
+    border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 800px) {
+    .tableList {
+        width: 100%;
+        display: block;
+    }
+
+    .cardName {
+        align-self: flex-start;
+    }
+    
+    .cardCategory {
+        align-self: flex-end;
+    }
 }
