@@ -32,9 +32,15 @@
     font-size: 1.2rem;
 }
 
-.th {
-}
-
 .tr:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav {
+    margin-top: 1rem;
+    align-self: flex-start;
+}
+
+.nav a {
+    font-size: 1.2rem;
 }

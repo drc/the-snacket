@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/CreateSnack.module.css";
 import { server } from "../config";
 import useSWR from "swr";
@@ -28,6 +29,8 @@ export default function CreateSnack({ categories }) {
             });
             if (res.status === 200 || res.status === 201) {
                 setLoading(false);
+                const snack = await res.json();
+                data.results.push(snack);
             } else {
                 const message = await res.json();
                 alert(message.error);
@@ -44,7 +47,11 @@ export default function CreateSnack({ categories }) {
             <Head>
                 <title>Add a Snack</title>
             </Head>
-
+            <nav className={styles.nav}>
+                <Link href="/">
+                    <a>&larr; Home</a>
+                </Link>
+            </nav>
             <main className="main">
                 <h1 className={styles.title}>Add a Snack</h1>
                 {loading ? (
@@ -74,9 +81,11 @@ export default function CreateSnack({ categories }) {
                                 </option>
                             ))}
                         </select>
-                        {name && category && <button className={styles.button} onClick={submit}>
-                            Add
-                        </button>}
+                        {name && category && (
+                            <button className={styles.button} onClick={submit}>
+                                Add
+                            </button>
+                        )}
                     </form>
                 )}
                 {data ? (
