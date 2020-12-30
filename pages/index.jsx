@@ -6,7 +6,46 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Create Next App</title>
+                <title>The Snacket - 2021</title>
+                <meta
+                    name="description"
+                    content="Determining the top snack in 2021."
+                />
+
+                <meta
+                    property="og:url"
+                    content="https://the-snacket.herokuapp.com/"
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="The Snacket - 2021" />
+                <meta
+                    property="og:description"
+                    content="Determining the top snack in 2021."
+                />
+                <meta
+                    property="og:image"
+                    content="https://static.onecms.io/wp-content/uploads/sites/35/2018/01/03222555/wide-puffed-snacks-bags.jpg"
+                />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    property="twitter:domain"
+                    content="the-snacket.herokuapp.com"
+                />
+                <meta
+                    property="twitter:url"
+                    content="https://the-snacket.herokuapp.com/"
+                />
+                <meta name="twitter:title" content="The Snacket - 2021" />
+                <meta
+                    name="twitter:description"
+                    content="Determining the top snack in 2021."
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://static.onecms.io/wp-content/uploads/sites/35/2018/01/03222555/wide-puffed-snacks-bags.jpg"
+                />
+
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -29,7 +68,8 @@ export default function Home() {
                     </Link>
 
                     <Link href="/bracket">
-                        <a className={`${styles.card} ${
+                        <a
+                            className={`${styles.card} ${
                                 new Date().getTime() < 1609480800000
                                     ? styles.disabled
                                     : ""
@@ -40,13 +80,17 @@ export default function Home() {
                     </Link>
 
                     <Link href="/create-snack">
-                        <a className={`${styles.card} ${
+                        <a
+                            className={`${styles.card} ${
                                 new Date().getTime() > 1609480800000
                                     ? styles.disabled
                                     : ""
                             }`}>
                             <h3>Add Snacks &rarr;</h3>
-                            <p>See the current snack list and add more for the draft!</p>
+                            <p>
+                                See the current snack list and add more for the
+                                draft!
+                            </p>
                         </a>
                     </Link>
                 </div>
