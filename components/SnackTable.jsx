@@ -17,13 +17,13 @@ export default function SnackTable({ data, categories, filter }) {
                     return (
                         <div className={styles.card} key={snack._id}>
                             <div className={styles.cardName}>{snack.name}</div>
-                            <div className={styles.cardCategory}>
+                            {/* <div className={styles.cardCategory}>
                                 {
                                     categories.results.find(
                                         cat => cat._id === snack.category
                                     ).name
                                 }
-                            </div>
+                            </div> */}
                         </div>
                     );
                 })}
