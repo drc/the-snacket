@@ -4,7 +4,6 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
     const beforeNYD = new Date().getTime() < 1609480800000;
-    const afterNYE = new Date().getTime() > 1609480800000;
 
     return (
         <div className={styles.container}>
@@ -40,16 +39,20 @@ export default function Home() {
                     </Link>
 
                     <Link href="/create-snack">
-                        <a
-                            className={`${styles.card} ${
-                                afterNYE ? styles.disabled : ""
-                            }`}>
-                            <h3>Add Snacks &rarr;</h3>
-                            <p>
-                                See the current snack list and add more for the
-                                draft!
-                            </p>
-                        </a>
+                        {beforeNYD ? (
+                            <a className={styles.card}>
+                                <h3>Add Snacks &rarr;</h3>
+                                <p>
+                                    See the current snack list and add more for
+                                    the draft!
+                                </p>
+                            </a>
+                        ) : (
+                            <a className={styles.card}>
+                                <h3>Snack List &rarr;</h3>
+                                <p>See the entire snack list!</p>
+                            </a>
+                        )}
                     </Link>
                 </div>
             </main>

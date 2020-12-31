@@ -13,9 +13,10 @@ export default function SnackTable({ data, filter }) {
                     return 0;
                 })
                 .filter(snack => snack.category === filter._id)
-                .map(snack => {
+                .map((snack, idx) => {
                     return (
                         <div className={styles.card} key={snack._id}>
+                            <div>{idx + 1}</div>
                             <div className={styles.cardName}>{snack.name}</div>
                         </div>
                     );
