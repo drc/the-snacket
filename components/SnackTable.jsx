@@ -1,6 +1,6 @@
 import styles from "../styles/CreateSnack.module.css";
 
-export default function SnackTable({ data, categories, filter }) {
+export default function SnackTable({ data, filter }) {
     return (
         <div className={styles.snackList}>
             <h3>{filter.name}</h3>
@@ -17,13 +17,6 @@ export default function SnackTable({ data, categories, filter }) {
                     return (
                         <div className={styles.card} key={snack._id}>
                             <div className={styles.cardName}>{snack.name}</div>
-                            {/* <div className={styles.cardCategory}>
-                                {
-                                    categories.results.find(
-                                        cat => cat._id === snack.category
-                                    ).name
-                                }
-                            </div> */}
                         </div>
                     );
                 })}

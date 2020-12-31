@@ -5,6 +5,7 @@ import styles from "../styles/CreateSnack.module.css";
 import { server } from "../config";
 import useSWR from "swr";
 import SnackTable from "../components/SnackTable";
+import Header from "../components/Header";
 
 export default function CreateSnack({ categories }) {
     const fetcher = url => fetch(url).then(r => r.json());
@@ -43,20 +44,24 @@ export default function CreateSnack({ categories }) {
         }
     };
 
+    const afterNYE = (new Date().getTime() > 1609480800000);
+
     return (
         <div className="container">
-            <Head>
-                <title>Add a Snack</title>
-            </Head>
+            <Header title={afterNYE ? "Snack List" : "Add a Snack"} />
             <nav className={styles.nav}>
                 <Link href="/">
                     <a>&larr; Home</a>
                 </Link>
             </nav>
             <main className="main">
-                <h1 className={styles.title}>Add a Snack</h1>
+                <h1 className={styles.title}>
+                    {afterNYE ? "Snack List" : "Add a Snack"}
+                </h1>
                 {loading ? (
                     <div>Adding...</div>
+                ) : afterNYE ? (
+                    ""
                 ) : (
                     <form>
                         <label className={styles.label}>Snack Name: </label>
@@ -95,7 +100,6 @@ export default function CreateSnack({ categories }) {
                               <SnackTable
                                   key={idx}
                                   data={data}
-                                  categories={categories}
                                   filter={category}
                               />
                           ))
